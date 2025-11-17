@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct RotatingShurikenView: View {
+    @State private var isRotating = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ShurikenView()
+            .rotationEffect(.degrees(isRotating ? 360 : 0))
+            .animation(
+                .linear(duration: 0.5)
+                .repeatForever(autoreverses: false),
+                value: isRotating
+            )
+            .onAppear {
+                isRotating = true
+            }
     }
 }
 
