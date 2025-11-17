@@ -10,13 +10,33 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            
+            HStack {
+                ShurikenView()
+                    .frame(width: 80, height: 80)
+                ShurikenView()
+                    .frame(width: 80, height: 80)
+                    .padding(.bottom, 50)
+                ShurikenView()
+                    .frame(width: 80, height: 80)
+            }
+                
+            HStack {
+                RotatingShurikenView()
+                    .frame(width: 80, height: 80)
+                NinjaView()
+                    .frame(width: 200, height: 200)
+                RotatingShurikenView()
+                    .frame(width: 80, height: 80)
+            }
         }
-        .padding()
+        .padding(.bottom, 100)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(
+            Color(red: 0.85, green: 0.93, blue: 1.0)
+                .ignoresSafeArea())
     }
+    
 }
 
 #Preview {
